@@ -3,4 +3,54 @@
   <groupId>Data_Driven_Testing</groupId>
   <artifactId>DataDrivenTesting.com</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+ 
+ <dependencies>
+    <!-- Selenium for UI automation -->
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.38.0</version>
+</dependency>
+    <!-- TestNG for test framework -->
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.11.0</version>
+    <scope>test</scope>
+</dependency>
+
+    <!-- Apache POI for Excel reading -->
+<!-- Apache POI for Excel (.xlsx) reading/writing -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>5.2.3</version>
+</dependency>
+
+<!-- (Optional but recommended) Core POI library -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>5.2.3</version>
+</dependency>
+
+<!-- (Optional) For handling Excel advanced features -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml-full</artifactId>
+    <version>5.2.3</version>
+</dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+<dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>6.3.2</version>
+</dependency>
+</dependencies>
+
+ 
+  
 </project>

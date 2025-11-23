@@ -1,0 +1,7 @@
+<suite name="Suite">
+    <test name="Test Run">
+        <classes>
+            <class name="Data_Driven_Test.LoginTest"/>
+        </classes>
+    </test>
+</suite>
