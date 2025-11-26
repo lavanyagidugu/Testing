@@ -1,15 +1,16 @@
 package Data_Driven_Test;
 
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.Assert;
-import org.testng.annotations.*;
-import Data_Driven_Testing.LoginPage;
-import Data_Driven_Testing.ExcelUtil;
-
 import java.io.IOException;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import Data_Driven_Testing.Browser;
+import Data_Driven_Testing.ExcelUtil;
+import Data_Driven_Testing.LoginPage;
+import Data_Driven_Testing.ConfigReader; // Import the new utility
 
 public class LoginTest {
 
@@ -17,15 +18,16 @@ public class LoginTest {
 
     @BeforeClass
     public void setup() {
-    	ChromeOptions options = new ChromeOptions();
-    	options.addArguments("--disable-blink-features=AutomationControlled");
-    	options.setExperimentalOption("useAutomationExtension", false);
-    	options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+        // 1. Get Browser from properties (Optional, but best practice)
+        // If you want to keep hardcoded "WindowChrome", you can, but this is better:
+        String browserName = ConfigReader.getProperty("browser"); 
+        
+        // 2. Initialize driver
+        driver = Browser.browsersetup(browserName != null ? browserName : "WindowChrome");
 
-    	driver = new ChromeDriver(options);
-    	driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-    	driver.manage().window().maximize();
-       
+        // 3. Get URL from properties file instead of hardcoding
+        String appUrl = ConfigReader.getProperty("URL");
+        driver.get(appUrl);
     }
 
     @DataProvider(name = "loginData")
